@@ -4,6 +4,10 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "HackLink — Connect. Compete. Collaborate.",
   description: "Meet Iloilo’s developers, designers, students, and organizers. Find your people and build what’s next.",
+  icons: {
+    icon: "/hacklink-icon.png",
+    apple: "/hacklink-icon.png",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

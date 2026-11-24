@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Bell, Compass, Home, Link2, MapPin, Trophy, Users } from "lucide-react";
+import { Bell, Compass, Home, MapPin, Trophy, Users } from "lucide-react";
 import { ALLOWED_REGIONS } from "@/config/regions";
 import CommunityRail from "@/components/CommunityRail";
 import PreviewNotice from "@/components/PreviewNotice";
@@ -32,9 +33,13 @@ export default function Shell({ children }: { children: React.ReactNode }) {
       <div className="mx-auto min-h-dvh max-w-[1480px] md:grid md:grid-cols-[220px_minmax(0,1fr)] xl:grid-cols-[244px_minmax(0,720px)_288px] xl:justify-center">
         <aside className="sticky top-0 hidden h-dvh flex-col border-r border-line bg-surface/90 px-4 py-7 md:flex xl:px-5">
           <Link href="/home" className="mb-9 flex items-center gap-3 px-2" aria-label="HackLink home">
-            <span className="grid size-11 shrink-0 place-items-center rounded-2xl bg-primary-dark text-white shadow-sm">
-              <Link2 size={22} strokeWidth={2.5} aria-hidden="true" />
-            </span>
+            <Image
+              src="/hacklink-icon.png"
+              alt=""
+              width={44}
+              height={44}
+              className="size-11 shrink-0 rounded-2xl border border-primary/30 object-cover shadow-sm"
+            />
             <span className="min-w-0">
               <span className="block font-display text-xl font-bold tracking-tight text-ink">HackLink</span>
               <span className="block text-[10px] font-semibold tracking-[0.16em] text-muted">CONNECT · COMPETE · COLLABORATE</span>
@@ -81,9 +86,13 @@ export default function Shell({ children }: { children: React.ReactNode }) {
         <div className="min-w-0">
           <header className="sticky top-0 z-20 flex items-center justify-between border-b border-line/80 bg-bg/95 px-4 py-3 backdrop-blur md:hidden">
             <Link href="/home" className="flex items-center gap-2.5" aria-label="HackLink home">
-              <span               className="grid size-9 place-items-center rounded-xl bg-primary-dark text-white">
-                <Link2 size={19} strokeWidth={2.5} aria-hidden="true" />
-              </span>
+              <Image
+                src="/hacklink-icon.png"
+                alt=""
+                width={36}
+                height={36}
+                className="size-9 rounded-xl border border-primary/30 object-cover"
+              />
               <span className="font-display text-lg font-bold tracking-tight text-ink">HackLink</span>
             </Link>
             <Link
