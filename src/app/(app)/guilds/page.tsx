@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, LockKeyhole, Users } from "lucide-react";
+import { ArrowRight, LockKeyhole, Plus, Users } from "lucide-react";
 import GuildCard from "@/components/GuildCard";
 import PageHeading from "@/components/PageHeading";
 import { SAMPLE_GUILDS } from "@/config/sample-content";
@@ -12,6 +12,13 @@ export default function GuildsPage() {
         title="Find a crew that helps you grow."
         description="Guilds bring people together around shared interests, projects, and the kind of learning that happens by doing."
       />
+
+      <div className="flex flex-col gap-3 rounded-2xl border border-line bg-surface p-4 sm:flex-row sm:items-center sm:justify-between sm:p-5">
+        <p className="text-sm leading-6 text-muted">Have a group idea? Start with a clear purpose and welcoming membership.</p>
+        <Link href="/guilds/create" className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 rounded-xl bg-primary-dark px-4 text-sm font-bold text-white transition-colors hover:bg-red-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-surface">
+          <Plus size={16} aria-hidden="true" /> Create a Guild · preview
+        </Link>
+      </div>
 
       <section className="flex flex-col gap-4 rounded-2xl border border-primary/10 bg-primary/5 p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
         <div className="flex items-start gap-3">

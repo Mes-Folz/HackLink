@@ -15,6 +15,7 @@ export type SamplePost = {
 };
 
 export type SampleGuild = {
+  slug: string;
   name: string;
   category: string;
   description: string;
@@ -24,14 +25,19 @@ export type SampleGuild = {
 };
 
 export type SampleEvent = {
+  slug: string;
   title: string;
   topic: string;
   description: string;
   date: string;
+  registrationDeadline: string;
   location: string;
   host: string;
   online: boolean;
   tone: "blue" | "cyan" | "violet";
+  capacity: number;
+  accepted: number;
+  pending: number;
 };
 
 export const SAMPLE_POSTS: SamplePost[] = [
@@ -66,6 +72,7 @@ export const SAMPLE_POSTS: SamplePost[] = [
 
 export const SAMPLE_GUILDS: SampleGuild[] = [
   {
+    slug: "build-iloilo",
     name: "Build Iloilo",
     category: "Developers · Open source",
     description: "A welcoming place to ship small projects, share feedback, and learn by building together.",
@@ -74,6 +81,7 @@ export const SAMPLE_GUILDS: SampleGuild[] = [
     tone: "blue",
   },
   {
+    slug: "pixel-and-product",
     name: "Pixel & Product",
     category: "Design · Product",
     description: "Designers and product thinkers exploring better digital experiences through practice.",
@@ -82,6 +90,7 @@ export const SAMPLE_GUILDS: SampleGuild[] = [
     tone: "violet",
   },
   {
+    slug: "campus-founders",
     name: "Campus Founders",
     category: "Students · Startups",
     description: "Student builders turning useful ideas into experiments, prototypes, and real projects.",
@@ -93,34 +102,49 @@ export const SAMPLE_GUILDS: SampleGuild[] = [
 
 export const SAMPLE_EVENTS: SampleEvent[] = [
   {
+    slug: "western-visayas-build-weekend",
     title: "Western Visayas Build Weekend",
     topic: "48-hour hackathon",
     description: "Form a small team, pick a local challenge, and take an idea from whiteboard to demo.",
     date: "Dec 12–13, 2026",
+    registrationDeadline: "Dec 5, 2026",
     location: "Iloilo City",
     host: "Build Iloilo",
     online: false,
     tone: "blue",
+    capacity: 48,
+    accepted: 32,
+    pending: 9,
   },
   {
+    slug: "open-source-sprint",
     title: "Open Source Sprint: First PR",
     topic: "Community workshop",
     description: "A friendly, guided session for developers making their first contribution to an open project.",
     date: "Dec 19, 2026",
+    registrationDeadline: "Dec 16, 2026",
     location: "Online",
     host: "Campus Founders",
     online: true,
     tone: "cyan",
+    capacity: 60,
+    accepted: 24,
+    pending: 8,
   },
   {
+    slug: "design-for-real-life",
     title: "Design for Real Life",
     topic: "Design jam",
     description: "Pair up with other designers to explore a real-world problem and share what you learn.",
     date: "Jan 10, 2027",
+    registrationDeadline: "Jan 3, 2027",
     location: "Iloilo City",
     host: "Pixel & Product",
     online: false,
     tone: "violet",
+    capacity: 30,
+    accepted: 18,
+    pending: 12,
   },
 ];
 

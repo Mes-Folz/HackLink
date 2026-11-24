@@ -1,6 +1,7 @@
 import Link from "next/link";
-import { ArrowRight, Compass } from "lucide-react";
+import { ArrowRight, Compass, UserRoundPlus } from "lucide-react";
 import Avatar from "@/components/Avatar";
+import ConnectionPreviewButton from "@/components/ConnectionPreviewButton";
 import EventCard from "@/components/EventCard";
 import GuildCard from "@/components/GuildCard";
 import PageHeading from "@/components/PageHeading";
@@ -21,7 +22,9 @@ export default function ExplorePage() {
             <p className="text-xs font-bold uppercase tracking-[0.15em] text-primary">People to know</p>
             <h2 id="people-heading" className="mt-1 font-display text-xl font-bold text-ink">Meet the makers</h2>
           </div>
-          <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">Sample members</span>
+          <Link href="/connections" className="inline-flex min-h-11 items-center gap-2 rounded-xl border border-line px-3 text-xs font-bold text-ink transition-colors hover:border-primary/40 hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
+            <UserRoundPlus size={15} aria-hidden="true" /> Connections preview
+          </Link>
         </div>
         <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
           {SAMPLE_MEMBERS.map((member) => (
@@ -36,6 +39,9 @@ export default function ExplorePage() {
                   </li>
                 ))}
               </ul>
+              <div className="mt-4">
+                <ConnectionPreviewButton name={member.name} />
+              </div>
             </article>
           ))}
         </div>

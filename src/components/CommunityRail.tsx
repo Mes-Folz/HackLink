@@ -42,7 +42,7 @@ export default function CommunityRail() {
             </p>
             <p className="mt-2 text-sm leading-5 text-muted">{featuredEvent.description}</p>
             <Link
-              href="/hackathons"
+              href={`/hackathons/${featuredEvent.slug}`}
               className="mt-3 inline-flex min-h-10 items-center gap-1.5 text-sm font-bold text-primary hover:text-white"
             >
               Browse event previews <ArrowRight size={15} aria-hidden="true" />

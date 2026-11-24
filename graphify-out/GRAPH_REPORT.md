@@ -4,12 +4,12 @@
 - cluster-only mode — file stats not available
 
 ## Summary
-- 56 nodes · 128 edges · 7 communities (5 shown, 2 thin omitted)
+- 120 nodes · 303 edges · 8 communities (7 shown, 1 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `8c049b7c`
+- Built from commit: `b93f9d16`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -21,63 +21,76 @@
 - Community 4
 - Community 5
 - Community 6
+- Community 7
 
 ## God Nodes (most connected - your core abstractions)
-1. `Avatar()` - 9 edges
-2. `PageHeading()` - 6 edges
-3. `GuildCard()` - 6 edges
-4. `PostCard()` - 5 edges
-5. `Shell()` - 5 edges
-6. `ExplorePage()` - 5 edges
-7. `EventCard()` - 5 edges
-8. `SAMPLE_EVENTS` - 4 edges
-9. `HomePage()` - 3 edges
-10. `LikeButton()` - 3 edges
+1. `PageHeading()` - 12 edges
+2. `Avatar()` - 11 edges
+3. `SAMPLE_EVENTS` - 8 edges
+4. `EventCard()` - 7 edges
+5. `ALLOWED_REGIONS` - 7 edges
+6. `ExplorePage()` - 6 edges
+7. `GuildCard()` - 6 edges
+8. `MockAuthForm()` - 6 edges
+9. `PostCard()` - 6 edges
+10. `ProfilePage()` - 6 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `HomePage()` --calls--> `PageHeading()`  [EXTRACTED]
-  app/(app)/home/page.tsx → components/PageHeading.tsx
-- `AppLayout()` --calls--> `Shell()`  [EXTRACTED]
-  app/(app)/layout.tsx → components/Shell.tsx
-- `HackathonsPage()` --calls--> `PageHeading()`  [EXTRACTED]
-  app/(app)/hackathons/page.tsx → components/PageHeading.tsx
-- `ExplorePage()` --calls--> `EventCard()`  [EXTRACTED]
-  app/(app)/explore/page.tsx → components/EventCard.tsx
-- `HomePage()` --calls--> `PostCard()`  [EXTRACTED]
-  app/(app)/home/page.tsx → components/PostCard.tsx
+- `IndexPage()` --calls--> `Avatar()`  [EXTRACTED]
+  app/page.tsx → components/Avatar.tsx
+- `ExplorePage()` --calls--> `Avatar()`  [EXTRACTED]
+  app/(app)/explore/page.tsx → components/Avatar.tsx
+- `ExplorePage()` --calls--> `ConnectionPreviewButton()`  [EXTRACTED]
+  app/(app)/explore/page.tsx → components/ConnectionPreviewButton.tsx
+- `ExplorePage()` --calls--> `PageHeading()`  [EXTRACTED]
+  app/(app)/explore/page.tsx → components/PageHeading.tsx
+- `GuildsPage()` --calls--> `PageHeading()`  [EXTRACTED]
+  app/(app)/guilds/page.tsx → components/PageHeading.tsx
 
 ## Import Cycles
 - None detected.
 
-## Communities (7 total, 2 thin omitted)
+## Communities (8 total, 1 thin omitted)
 
 ### Community 0 - "Community 0"
-Cohesion: 0.26
-Nodes (5): HomePage(), STARTING_POINTS, LikeButton(), PostCard(), SAMPLE_POSTS
+Cohesion: 0.16
+Nodes (15): ExplorePage(), GuildsPage(), HackathonsPage(), ManageEventPage(), EventCard(), Application, EventReviewPreview(), INITIAL_APPLICATIONS (+7 more)
 
 ### Community 1 - "Community 1"
-Cohesion: 0.35
-Nodes (6): AppLayout(), CommunityRail(), PreviewNotice(), NAV, Shell(), ALLOWED_REGIONS
+Cohesion: 0.14
+Nodes (7): LoginPage(), OnboardingPage(), RegisterPage(), metadata, MockAuthForm(), MockAuthFormProps, OnboardingPreviewForm()
 
 ### Community 2 - "Community 2"
-Cohesion: 0.36
-Nodes (7): ExplorePage(), GuildsPage(), NotificationsPage(), SAMPLE_ACTIVITY, Avatar(), GuildCard(), PageHeading()
+Cohesion: 0.16
+Nodes (13): NotificationsPage(), SAMPLE_ACTIVITY, approximateArea, ProfilePage(), profilePosts, Avatar(), AvatarTone, TONE_CLASSES (+5 more)
 
 ### Community 3 - "Community 3"
-Cohesion: 0.36
-Nodes (5): AvatarTone, TONE_CLASSES, SampleEvent, SampleGuild, SamplePost
+Cohesion: 0.19
+Nodes (9): AppLayout(), regionLabel, WaitlistPage(), CommunityRail(), PreviewNotice(), NAV, Shell(), WaitlistPreviewForm() (+1 more)
+
+### Community 4 - "Community 4"
+Cohesion: 0.26
+Nodes (5): CreateGuildPage(), CreateHackathonPage(), EventCreatePreviewForm(), GuildCreatePreviewForm(), PageHeading()
 
 ### Community 5 - "Community 5"
-Cohesion: 0.50
-Nodes (3): SAMPLE_EVENTS, SAMPLE_GUILDS, SAMPLE_MEMBERS
+Cohesion: 0.33
+Nodes (4): ConnectionsPage(), EventDetailPage(), ConnectionPreviewButton(), EventApplicationPreviewButton()
+
+### Community 6 - "Community 6"
+Cohesion: 0.24
+Nodes (6): HomePage(), STARTING_POINTS, IndexPage(), regionLabel, PostComposerPreview(), SAMPLE_POSTS
 
 ## Knowledge Gaps
-- **2 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **1 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `Avatar()` connect `Community 2` to `Community 0`, `Community 3`, `Community 5`?**
-  _High betweenness centrality (0.036) - this node is a cross-community bridge._
-- **Why does `PageHeading()` connect `Community 2` to `Community 0`, `Community 6`?**
-  _High betweenness centrality (0.016) - this node is a cross-community bridge._
+- **Why does `PageHeading()` connect `Community 4` to `Community 0`, `Community 2`, `Community 5`, `Community 6`?**
+  _High betweenness centrality (0.040) - this node is a cross-community bridge._
+- **Should `Community 1` be split into smaller, more focused modules?**
+  _Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected._
+- **Why does `Avatar()` connect `Community 2` to `Community 0`, `Community 5`, `Community 6`?**
+  _High betweenness centrality (0.025) - this node is a cross-community bridge._
+- **Why does `EventReviewPreview()` connect `Community 0` to `Community 2`?**
+  _High betweenness centrality (0.020) - this node is a cross-community bridge._

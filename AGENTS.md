@@ -64,3 +64,5 @@ Roles live on `GuildMembership` and per-event organizer assignment, not as one g
 - [ ] Phase 3: Guilds
 - [ ] Phase 4: hackathons (registration + capacity, results)
 - [ ] Phase 5: QA, seed data (marked as sample), docs
+
+The 1.2–1.3 screens and Phase 2–4 community workflows now have UI mockups only. Posts, connections, Guilds, events, applications, reviews, and results use sample/local preview states; nothing is persisted. Real authentication, database work, server-side authorization, capacity enforcement, and the 1.4 permission helpers/auth tests remain pending after mockup review.

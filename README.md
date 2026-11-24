@@ -19,12 +19,19 @@ HackLink helps the local hackathon community connect, share work, find Guilds, a
 
 ## Current preview
 
+- Public welcome page
+- Register and login form mockups
+- Onboarding, out-of-region waitlist, and sample profile mockups
 - Community home with sample posts and comments
+- Local-only post composer and connection request previews
 - Explore page with sample members, Guilds, and events
-- Guild and hackathon preview pages
+- Guild directory, detail, and creation previews
+- Hackathon directory, event details, application, creation, and organizer review/results previews
 - Notifications preview
 - Responsive navigation for mobile and desktop
 - Dark black-and-red visual theme
+
+All account, onboarding, waitlist, post, connection, Guild, and event interactions are local-only previews. They do not create accounts, send credentials, submit applications, publish content, or save profile data.
 
 ## Tech stack
 

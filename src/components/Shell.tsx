@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Bell, Compass, Home, MapPin, Trophy, Users } from "lucide-react";
+import { Bell, Compass, Home, MapPin, Trophy, UserRound, Users } from "lucide-react";
 import { ALLOWED_REGIONS } from "@/config/regions";
 import CommunityRail from "@/components/CommunityRail";
 import PreviewNotice from "@/components/PreviewNotice";
@@ -64,6 +64,17 @@ export default function Shell({ children }: { children: React.ReactNode }) {
                 {active(href) && <span className="ml-auto size-1.5 rounded-full bg-primary" aria-hidden="true" />}
               </Link>
             ))}
+            <Link
+              href="/profile"
+              aria-current={active("/profile") ? "page" : undefined}
+              className={`group flex min-h-12 items-center gap-3 rounded-xl px-3 text-sm font-semibold transition-colors ${
+                active("/profile") ? "bg-primary/10 text-primary" : "text-muted hover:bg-bg hover:text-ink"
+              }`}
+            >
+              <UserRound size={19} strokeWidth={active("/profile") ? 2.3 : 1.9} aria-hidden="true" />
+              <span>My profile</span>
+              {active("/profile") && <span className="ml-auto size-1.5 rounded-full bg-primary" aria-hidden="true" />}
+            </Link>
           </nav>
 
           <div className="mt-auto rounded-2xl border border-primary/10 bg-primary/5 p-4">
@@ -95,13 +106,22 @@ export default function Shell({ children }: { children: React.ReactNode }) {
               />
               <span className="font-display text-lg font-bold tracking-tight text-ink">HackLink</span>
             </Link>
-            <Link
-              href="/explore"
-              aria-label="Explore HackLink"
-              className="grid size-10 place-items-center rounded-xl border border-line bg-surface text-muted transition-colors hover:text-primary focus-visible:ring-2 focus-visible:ring-primary"
-            >
-              <Compass size={19} aria-hidden="true" />
-            </Link>
+            <div className="flex items-center gap-2">
+              <Link
+                href="/explore"
+                aria-label="Explore HackLink"
+                className="grid size-10 place-items-center rounded-xl border border-line bg-surface text-muted transition-colors hover:text-primary focus-visible:ring-2 focus-visible:ring-primary"
+              >
+                <Compass size={19} aria-hidden="true" />
+              </Link>
+              <Link
+                href="/profile"
+                aria-label="Profile preview"
+                className="grid size-10 place-items-center rounded-xl border border-line bg-surface text-muted transition-colors hover:text-primary focus-visible:ring-2 focus-visible:ring-primary"
+              >
+                <UserRound size={19} aria-hidden="true" />
+              </Link>
+            </div>
           </header>
 
           <main

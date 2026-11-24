@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, CalendarDays, Compass, Lightbulb, Users } from "lucide-react";
 import PageHeading from "@/components/PageHeading";
 import PostCard from "@/components/PostCard";
+import PostComposerPreview from "@/components/PostComposerPreview";
 import { SAMPLE_POSTS } from "@/config/sample-content";
 
 const STARTING_POINTS = [
@@ -94,6 +95,8 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      <PostComposerPreview />
 
       <section aria-labelledby="feed-heading">
         <div className="mb-4 flex items-end justify-between gap-4">
