@@ -4,14 +4,14 @@ export default function PreviewNotice() {
   return (
     <div
       role="note"
-      className="mb-6 flex items-start gap-3 rounded-2xl border border-primary/20 bg-primary/5 px-4 py-3.5 text-sm"
+      className="mb-4 flex items-center gap-2 rounded-xl border border-line bg-surface/60 px-3 py-2 text-xs xl:hidden"
     >
-      <span className="mt-0.5 grid size-8 shrink-0 place-items-center rounded-xl bg-surface text-primary shadow-sm">
-        <Sparkles size={16} aria-hidden="true" />
+      <span className="grid size-6 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary">
+        <Sparkles size={13} aria-hidden="true" />
       </span>
-      <p className="leading-5 text-muted">
+      <p className="leading-4 text-muted">
         <span className="font-bold text-ink">Sample preview.</span>{" "}
-        People, posts, Guilds, and events are illustrative; changes aren&apos;t saved yet.
+        People and actions are illustrative; nothing is saved.
       </p>
     </div>
   );

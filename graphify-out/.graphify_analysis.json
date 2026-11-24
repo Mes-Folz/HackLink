@@ -1,31 +1,28 @@
 {
   "communities": {
     "0": [
-      "app_app_explore_page",
-      "app_app_explore_page_explorepage",
-      "app_app_guilds_page",
-      "app_app_guilds_page_guildspage",
-      "app_app_hackathons_page",
-      "app_app_hackathons_page_hackathonspage",
-      "app_app_hackathons_slug_manage_page",
-      "app_app_hackathons_slug_manage_page_generatestaticparams",
-      "app_app_hackathons_slug_manage_page_manageeventpage",
-      "components_eventcard",
-      "components_eventcard_eventcard",
-      "components_eventreviewpreview",
-      "components_eventreviewpreview_application",
-      "components_eventreviewpreview_eventreviewpreview",
-      "components_eventreviewpreview_eventreviewpreview_review",
-      "components_eventreviewpreview_initial_applications",
-      "components_eventreviewpreview_initial_pending_ids",
-      "components_guildcard",
-      "components_guildcard_guildcard",
-      "config_sample_content",
-      "config_sample_content_sample_events",
-      "config_sample_content_sample_guilds",
-      "config_sample_content_sample_members",
-      "config_sample_content_sampleevent",
-      "config_sample_content_sampleguild"
+      "app_app_guilds_slug_page",
+      "app_app_guilds_slug_page_generatestaticparams",
+      "app_app_guilds_slug_page_guilddetailpage",
+      "app_app_home_page",
+      "app_app_home_page_homepage",
+      "components_feedpreview",
+      "components_feedpreview_feedfilter",
+      "components_feedpreview_feedpreview",
+      "components_feedpreview_feedsort",
+      "components_feedpreview_filters",
+      "components_guildmembershippreviewbutton",
+      "components_guildmembershippreviewbutton_guildmembershippreviewbutton",
+      "components_likebutton",
+      "components_likebutton_likebutton",
+      "components_postcard",
+      "components_postcard_postcard",
+      "components_postcomposerpreview",
+      "components_postcomposerpreview_postcomposerpreview",
+      "components_postcomposerpreview_postcomposerpreview_handlesubmit",
+      "config_sample_content_sample_posts",
+      "config_sample_content_samplepost",
+      "ref_react"
     ],
     "1": [
       "app_auth_layout",
@@ -47,121 +44,153 @@
       "components_onboardingpreviewform",
       "components_onboardingpreviewform_onboardingpreviewform",
       "components_onboardingpreviewform_onboardingpreviewform_handlesubmit",
-      "ref_next",
-      "ref_react"
+      "ref_next"
     ],
     "2": [
-      "app_app_notifications_page",
-      "app_app_notifications_page_notificationspage",
-      "app_app_notifications_page_sample_activity",
-      "app_app_profile_page",
-      "app_app_profile_page_approximatearea",
-      "app_app_profile_page_profilepage",
-      "app_app_profile_page_profileposts",
-      "components_avatar",
-      "components_avatar_avatar",
-      "components_avatar_avatartone",
-      "components_avatar_tone_classes",
-      "components_emptystate",
-      "components_emptystate_emptystate",
-      "components_likebutton",
-      "components_likebutton_likebutton",
-      "components_postcard",
-      "components_postcard_postcard",
-      "components_previewsignoutbutton",
-      "components_previewsignoutbutton_previewsignoutbutton",
-      "config_sample_content_samplepost"
-    ],
-    "3": [
       "app_app_layout",
       "app_app_layout_applayout",
-      "app_auth_waitlist_page",
-      "app_auth_waitlist_page_regionlabel",
-      "app_auth_waitlist_page_waitlistpage",
+      "app_page",
+      "app_page_indexpage",
+      "app_page_regionlabel",
       "components_communityrail",
       "components_communityrail_communityrail",
       "components_previewnotice",
       "components_previewnotice_previewnotice",
       "components_shell",
       "components_shell_nav",
+      "components_shell_navigationlinks",
+      "components_shell_profileavatar",
       "components_shell_shell",
-      "components_waitlistpreviewform",
-      "components_waitlistpreviewform_waitlistpreviewform",
-      "components_waitlistpreviewform_waitlistpreviewform_handlesubmit",
       "config_regions",
-      "config_regions_allowed_regions"
+      "config_regions_allowed_regions",
+      "config_sample_content_sample_guilds"
+    ],
+    "3": [
+      "app_app_hackathons_slug_manage_page",
+      "app_app_hackathons_slug_manage_page_generatestaticparams",
+      "app_app_hackathons_slug_manage_page_manageeventpage",
+      "components_eventreviewpreview",
+      "components_eventreviewpreview_application",
+      "components_eventreviewpreview_eventreviewpreview",
+      "components_eventreviewpreview_eventreviewpreview_review",
+      "components_eventreviewpreview_initial_applications",
+      "components_eventreviewpreview_initial_pending_ids"
     ],
     "4": [
-      "app_app_guilds_create_page",
-      "app_app_guilds_create_page_createguildpage",
-      "app_app_hackathons_create_page",
-      "app_app_hackathons_create_page_createhackathonpage",
-      "components_eventcreatepreviewform",
-      "components_eventcreatepreviewform_eventcreatepreviewform",
-      "components_eventcreatepreviewform_eventcreatepreviewform_handlesubmit",
-      "components_guildcreatepreviewform",
-      "components_guildcreatepreviewform_guildcreatepreviewform",
-      "components_guildcreatepreviewform_guildcreatepreviewform_handlesubmit",
+      "app_app_profile_page",
+      "app_app_profile_page_approximatearea",
+      "app_app_profile_page_profilepage",
+      "app_app_profile_page_profileposts",
+      "components_emptystate",
+      "components_emptystate_emptystate",
+      "components_previewsignoutbutton",
+      "components_previewsignoutbutton_previewsignoutbutton"
+    ],
+    "5": [
+      "app_app_explore_page_explorepage",
+      "app_app_notifications_page",
+      "app_app_notifications_page_notificationspage",
+      "app_app_notifications_page_sample_activity",
+      "components_avatar_avatar",
       "components_pageheading",
       "components_pageheading_pageheading"
     ],
-    "5": [
+    "6": [
+      "app_app_hackathons_page",
+      "app_app_hackathons_page_hackathonspage",
+      "components_eventcard",
+      "components_eventcard_eventcard",
+      "config_sample_content",
+      "config_sample_content_sample_events",
+      "config_sample_content_sampleevent"
+    ],
+    "7": [
       "app_app_connections_page",
       "app_app_connections_page_connectionspage",
+      "app_app_explore_page",
+      "components_connectionpreviewbutton",
+      "components_connectionpreviewbutton_connectionpreviewbutton",
+      "config_sample_content_sample_members"
+    ],
+    "8": [
       "app_app_hackathons_slug_page",
       "app_app_hackathons_slug_page_eventdetailpage",
       "app_app_hackathons_slug_page_generatestaticparams",
-      "components_connectionpreviewbutton",
-      "components_connectionpreviewbutton_connectionpreviewbutton",
       "components_eventapplicationpreviewbutton",
       "components_eventapplicationpreviewbutton_eventapplicationpreviewbutton",
       "ref_lucide_react"
     ],
-    "6": [
-      "app_app_home_page",
-      "app_app_home_page_homepage",
-      "app_app_home_page_starting_points",
-      "app_page",
-      "app_page_indexpage",
-      "app_page_regionlabel",
-      "components_postcomposerpreview",
-      "components_postcomposerpreview_postcomposerpreview",
-      "components_postcomposerpreview_postcomposerpreview_handlesubmit",
-      "config_sample_content_sample_posts"
+    "9": [
+      "app_auth_waitlist_page",
+      "app_auth_waitlist_page_regionlabel",
+      "app_auth_waitlist_page_waitlistpage",
+      "components_waitlistpreviewform",
+      "components_waitlistpreviewform_waitlistpreviewform",
+      "components_waitlistpreviewform_waitlistpreviewform_handlesubmit"
     ],
-    "7": [
-      "app_app_guilds_slug_page",
-      "app_app_guilds_slug_page_generatestaticparams",
-      "app_app_guilds_slug_page_guilddetailpage",
-      "components_guildmembershippreviewbutton",
-      "components_guildmembershippreviewbutton_guildmembershippreviewbutton"
+    "10": [
+      "app_app_guilds_create_page",
+      "app_app_guilds_create_page_createguildpage",
+      "components_guildcreatepreviewform",
+      "components_guildcreatepreviewform_guildcreatepreviewform",
+      "components_guildcreatepreviewform_guildcreatepreviewform_handlesubmit"
+    ],
+    "11": [
+      "app_app_guilds_page",
+      "app_app_guilds_page_guildspage",
+      "components_guildcard",
+      "components_guildcard_guildcard",
+      "config_sample_content_sampleguild"
+    ],
+    "12": [
+      "app_app_hackathons_create_page",
+      "app_app_hackathons_create_page_createhackathonpage",
+      "components_eventcreatepreviewform",
+      "components_eventcreatepreviewform_eventcreatepreviewform",
+      "components_eventcreatepreviewform_eventcreatepreviewform_handlesubmit"
+    ],
+    "13": [
+      "components_avatar",
+      "components_avatar_avatartone",
+      "components_avatar_tone_classes"
     ]
   },
   "cohesion": {
-    "0": 0.16,
-    "1": 0.14285714285714285,
-    "2": 0.1631578947368421,
-    "3": 0.19117647058823528,
-    "4": 0.25757575757575757,
-    "5": 0.3333333333333333,
-    "6": 0.24444444444444444,
-    "7": 0.6
+    "0": 0.15151515151515152,
+    "1": 0.14736842105263157,
+    "2": 0.21323529411764705,
+    "3": 0.2777777777777778,
+    "4": 0.35714285714285715,
+    "5": 0.42857142857142855,
+    "6": 0.5238095238095238,
+    "7": 0.6,
+    "8": 0.5333333333333333,
+    "9": 0.4666666666666667,
+    "10": 0.6,
+    "11": 0.6,
+    "12": 0.6,
+    "13": 0.6666666666666666
   },
   "gods": [
     {
-      "id": "components_pageheading_pageheading",
-      "label": "PageHeading()",
+      "id": "components_avatar_avatar",
+      "label": "Avatar()",
       "degree": 12
     },
     {
-      "id": "components_avatar_avatar",
-      "label": "Avatar()",
+      "id": "components_pageheading_pageheading",
+      "label": "PageHeading()",
       "degree": 11
     },
     {
       "id": "config_sample_content_sample_events",
       "label": "SAMPLE_EVENTS",
       "degree": 8
+    },
+    {
+      "id": "components_shell_shell",
+      "label": "Shell()",
+      "degree": 7
     },
     {
       "id": "components_eventcard_eventcard",
@@ -174,13 +203,13 @@
       "degree": 7
     },
     {
-      "id": "app_app_explore_page_explorepage",
-      "label": "ExplorePage()",
-      "degree": 6
+      "id": "config_sample_content_sample_guilds",
+      "label": "SAMPLE_GUILDS",
+      "degree": 7
     },
     {
-      "id": "components_guildcard_guildcard",
-      "label": "GuildCard()",
+      "id": "components_postcard_postcard",
+      "label": "PostCard()",
       "degree": 6
     },
     {
@@ -189,13 +218,8 @@
       "degree": 6
     },
     {
-      "id": "components_postcard_postcard",
-      "label": "PostCard()",
-      "degree": 6
-    },
-    {
-      "id": "app_app_profile_page_profilepage",
-      "label": "ProfilePage()",
+      "id": "components_guildcard_guildcard",
+      "label": "GuildCard()",
       "degree": 6
     }
   ],
@@ -212,70 +236,70 @@
       "why": "connects across different repos/directories; bridges separate communities; peripheral node `IndexPage()` unexpectedly reaches hub `Avatar()`"
     },
     {
-      "source": "ExplorePage()",
-      "target": "Avatar()",
+      "source": "GuildDetailPage()",
+      "target": "EventCard()",
       "source_files": [
-        "app/(app)/explore/page.tsx",
-        "components/Avatar.tsx"
+        "app/(app)/guilds/[slug]/page.tsx",
+        "components/EventCard.tsx"
       ],
       "confidence": "EXTRACTED",
       "relation": "calls",
       "why": "connects across different repos/directories; bridges separate communities"
     },
     {
-      "source": "ExplorePage()",
-      "target": "ConnectionPreviewButton()",
+      "source": "HomePage()",
+      "target": "FeedPreview()",
       "source_files": [
-        "app/(app)/explore/page.tsx",
-        "components/ConnectionPreviewButton.tsx"
+        "app/(app)/home/page.tsx",
+        "components/FeedPreview.tsx"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories; peripheral node `HomePage()` unexpectedly reaches hub `FeedPreview()`"
+    },
+    {
+      "source": "ProfilePage()",
+      "target": "PostCard()",
+      "source_files": [
+        "app/(app)/profile/page.tsx",
+        "components/PostCard.tsx"
       ],
       "confidence": "EXTRACTED",
       "relation": "calls",
       "why": "connects across different repos/directories; bridges separate communities"
     },
     {
-      "source": "ExplorePage()",
-      "target": "PageHeading()",
+      "source": "LoginPage()",
+      "target": "MockAuthForm()",
       "source_files": [
-        "app/(app)/explore/page.tsx",
-        "components/PageHeading.tsx"
+        "app/(auth)/login/page.tsx",
+        "components/MockAuthForm.tsx"
       ],
       "confidence": "EXTRACTED",
       "relation": "calls",
-      "why": "connects across different repos/directories; bridges separate communities"
-    },
-    {
-      "source": "GuildsPage()",
-      "target": "PageHeading()",
-      "source_files": [
-        "app/(app)/guilds/page.tsx",
-        "components/PageHeading.tsx"
-      ],
-      "confidence": "EXTRACTED",
-      "relation": "calls",
-      "why": "connects across different repos/directories; bridges separate communities"
+      "why": "connects across different repos/directories; peripheral node `LoginPage()` unexpectedly reaches hub `MockAuthForm()`"
     }
   ],
   "questions": [
     {
       "type": "bridge_node",
-      "question": "Why does `PageHeading()` connect `Community 4` to `Community 0`, `Community 2`, `Community 5`, `Community 6`?",
-      "why": "High betweenness centrality (0.040) - this node is a cross-community bridge."
+      "question": "Why does `Avatar()` connect `Community 5` to `Community 0`, `Community 2`, `Community 3`, `Community 4`, `Community 7`, `Community 11`, `Community 13`?",
+      "why": "High betweenness centrality (0.036) - this node is a cross-community bridge."
     },
     {
       "type": "low_cohesion",
       "question": "Should `Community 1` be split into smaller, more focused modules?",
-      "why": "Cohesion score 0.14285714285714285 - nodes in this community are weakly interconnected."
+      "why": "Cohesion score 0.14736842105263157 - nodes in this community are weakly interconnected."
     },
     {
       "type": "bridge_node",
-      "question": "Why does `Avatar()` connect `Community 2` to `Community 0`, `Community 5`, `Community 6`?",
-      "why": "High betweenness centrality (0.025) - this node is a cross-community bridge."
+      "question": "Why does `PageHeading()` connect `Community 5` to `Community 3`, `Community 4`, `Community 6`, `Community 7`, `Community 8`, `Community 10`, `Community 11`, `Community 12`?",
+      "why": "High betweenness centrality (0.029) - this node is a cross-community bridge."
     },
     {
       "type": "bridge_node",
-      "question": "Why does `EventReviewPreview()` connect `Community 0` to `Community 2`?",
-      "why": "High betweenness centrality (0.020) - this node is a cross-community bridge."
+      "question": "Why does `EventReviewPreview()` connect `Community 3` to `Community 5`?",
+      "why": "High betweenness centrality (0.019) - this node is a cross-community bridge."
     }
   ]
 }

@@ -37,7 +37,7 @@ npm audit --omit=dev   # keep at 0 vulnerabilities
 ## Design
 Dark black/red default, inspired by the owner's HackLink visual reference. Tokens (in `tailwind.config.ts`): primary `#F87171`, primary dark `#B91C2B`, bg `#09090B`, surface `#131315`, ink `#F4F4F5`, muted `#A1A1AA`, line `#2B2B2F`, night `#050506`.
 Fonts: Inter (UI), Space Grotesk (headings), JetBrains Mono (sparingly, technical labels). Not a Facebook clone and not a generic admin template.
-Every screen needs loading, empty, success and error states. Keep focus states, labels, semantic HTML and contrast.
+Motion should be subtle and purposeful, with `prefers-reduced-motion` respected. Every screen needs loading, empty, success and error states. Keep focus states, labels, semantic HTML and contrast.
 
 ## Data model (planned)
 User, UserLocationPreference, Connection, Post, Comment, PostLike, Guild, GuildMembership (owner/admin/member), GuildInvitation, HackathonEvent, EventRegistration, EventResult, Notification.

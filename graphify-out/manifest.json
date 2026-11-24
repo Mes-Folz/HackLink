@@ -18,10 +18,10 @@
     "semantic_hash": "df5eb773259898526b5a8e3537bf7752"
   },
   "src/app/(app)/home/page.tsx": {
-    "mtime": 1795549276.7034764,
-    "seen": 1795549316.9248705,
-    "ast_hash": "4b5b0ee2c82e8dc161b9d77be9c4c773",
-    "semantic_hash": "4b5b0ee2c82e8dc161b9d77be9c4c773"
+    "mtime": 1795559569.5502884,
+    "seen": 1795559661.1773312,
+    "ast_hash": "1b30f4e06ff8badb8949d5fc75e09ed4",
+    "semantic_hash": "1b30f4e06ff8badb8949d5fc75e09ed4"
   },
   "src/app/(app)/layout.tsx": {
     "mtime": 1795002556.4681835,
@@ -54,10 +54,10 @@
     "semantic_hash": "0e6a39b909cef938c46e8884c83f256e"
   },
   "src/components/CommunityRail.tsx": {
-    "mtime": 1795549288.5236757,
-    "seen": 1795549316.927844,
-    "ast_hash": "8014c768fa82409cb71a42d05e5ed123",
-    "semantic_hash": "8014c768fa82409cb71a42d05e5ed123"
+    "mtime": 1795559469.953353,
+    "seen": 1795559502.7060905,
+    "ast_hash": "2842fbc45376672568523d904a8edfc9",
+    "semantic_hash": "2842fbc45376672568523d904a8edfc9"
   },
   "src/components/EmptyState.tsx": {
     "mtime": 1795544043.028868,
@@ -96,16 +96,16 @@
     "semantic_hash": "697d7ffbe90708c8f115953267351547"
   },
   "src/components/PreviewNotice.tsx": {
-    "mtime": 1795545684.7555082,
-    "seen": 1795545729.8097484,
-    "ast_hash": "2541e71e12ba991a0035ac2be74f6c80",
-    "semantic_hash": "2541e71e12ba991a0035ac2be74f6c80"
+    "mtime": 1795559411.7820146,
+    "seen": 1795559502.722667,
+    "ast_hash": "0df9c1b9a0b27d5deb14211d81151e37",
+    "semantic_hash": "0df9c1b9a0b27d5deb14211d81151e37"
   },
   "src/components/Shell.tsx": {
-    "mtime": 1795548520.769863,
-    "seen": 1795548603.5947776,
-    "ast_hash": "af4a11c030b4856bed8a3bf993a0bb96",
-    "semantic_hash": "af4a11c030b4856bed8a3bf993a0bb96"
+    "mtime": 1795559465.2340553,
+    "seen": 1795559502.723253,
+    "ast_hash": "2cb2a279a156857d7068fb0e4a582dc0",
+    "semantic_hash": "2cb2a279a156857d7068fb0e4a582dc0"
   },
   "src/config/regions.ts": {
     "mtime": 1795002556.4304082,
@@ -252,9 +252,15 @@
     "semantic_hash": "275444262710f1ef1edca38f635ac829"
   },
   "src/components/PostComposerPreview.tsx": {
-    "mtime": 1795549243.337344,
-    "seen": 1795549316.9291403,
-    "ast_hash": "8b6b804e87f24387875776d3734f0df5",
-    "semantic_hash": "8b6b804e87f24387875776d3734f0df5"
+    "mtime": 1795559434.4011655,
+    "seen": 1795559502.7226605,
+    "ast_hash": "4b4c75a1d5cb05a80b4ef30db0b8794d",
+    "semantic_hash": "4b4c75a1d5cb05a80b4ef30db0b8794d"
+  },
+  "src/components/FeedPreview.tsx": {
+    "mtime": 1795559455.5389864,
+    "seen": 1795559502.7140534,
+    "ast_hash": "828f15da30825cd3d9345020b7ab9311",
+    "semantic_hash": "828f15da30825cd3d9345020b7ab9311"
   }
 }
