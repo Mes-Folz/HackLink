@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "HackLink",
-  description: "Connect. Compete. Collaborate.",
+  title: "HackLink — Connect. Compete. Collaborate.",
+  description: "Meet Iloilo’s developers, designers, students, and organizers. Find your people and build what’s next.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

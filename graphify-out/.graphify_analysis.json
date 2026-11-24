@@ -1,0 +1,204 @@
+{
+  "communities": {
+    "0": [
+      "app_app_home_page",
+      "app_app_home_page_homepage",
+      "app_app_home_page_starting_points",
+      "components_emptystate",
+      "components_emptystate_emptystate",
+      "components_likebutton",
+      "components_likebutton_likebutton",
+      "components_postcard",
+      "components_postcard_postcard",
+      "config_sample_content_sample_posts",
+      "ref_lucide_react",
+      "ref_react"
+    ],
+    "1": [
+      "app_app_layout",
+      "app_app_layout_applayout",
+      "components_communityrail",
+      "components_communityrail_communityrail",
+      "components_previewnotice",
+      "components_previewnotice_previewnotice",
+      "components_shell",
+      "components_shell_nav",
+      "components_shell_shell",
+      "config_regions",
+      "config_regions_allowed_regions"
+    ],
+    "2": [
+      "app_app_explore_page_explorepage",
+      "app_app_guilds_page",
+      "app_app_guilds_page_guildspage",
+      "app_app_notifications_page",
+      "app_app_notifications_page_notificationspage",
+      "app_app_notifications_page_sample_activity",
+      "components_avatar_avatar",
+      "components_guildcard_guildcard",
+      "components_pageheading",
+      "components_pageheading_pageheading"
+    ],
+    "3": [
+      "components_avatar",
+      "components_avatar_avatartone",
+      "components_avatar_tone_classes",
+      "components_guildcard",
+      "config_sample_content",
+      "config_sample_content_sampleevent",
+      "config_sample_content_sampleguild",
+      "config_sample_content_samplepost"
+    ],
+    "4": [
+      "app_globals",
+      "app_layout",
+      "app_layout_metadata",
+      "app_layout_rootlayout",
+      "app_page",
+      "app_page_index",
+      "ref_next"
+    ],
+    "5": [
+      "app_app_explore_page",
+      "config_sample_content_sample_events",
+      "config_sample_content_sample_guilds",
+      "config_sample_content_sample_members"
+    ],
+    "6": [
+      "app_app_hackathons_page",
+      "app_app_hackathons_page_hackathonspage",
+      "components_eventcard",
+      "components_eventcard_eventcard"
+    ]
+  },
+  "cohesion": {
+    "0": 0.25757575757575757,
+    "1": 0.34545454545454546,
+    "2": 0.35555555555555557,
+    "3": 0.35714285714285715,
+    "4": 0.2857142857142857,
+    "5": 0.5,
+    "6": 0.8333333333333334
+  },
+  "gods": [
+    {
+      "id": "components_avatar_avatar",
+      "label": "Avatar()",
+      "degree": 9
+    },
+    {
+      "id": "components_pageheading_pageheading",
+      "label": "PageHeading()",
+      "degree": 6
+    },
+    {
+      "id": "components_guildcard_guildcard",
+      "label": "GuildCard()",
+      "degree": 6
+    },
+    {
+      "id": "components_postcard_postcard",
+      "label": "PostCard()",
+      "degree": 5
+    },
+    {
+      "id": "components_shell_shell",
+      "label": "Shell()",
+      "degree": 5
+    },
+    {
+      "id": "app_app_explore_page_explorepage",
+      "label": "ExplorePage()",
+      "degree": 5
+    },
+    {
+      "id": "components_eventcard_eventcard",
+      "label": "EventCard()",
+      "degree": 5
+    },
+    {
+      "id": "config_sample_content_sample_events",
+      "label": "SAMPLE_EVENTS",
+      "degree": 4
+    },
+    {
+      "id": "app_app_home_page_homepage",
+      "label": "HomePage()",
+      "degree": 3
+    },
+    {
+      "id": "components_likebutton_likebutton",
+      "label": "LikeButton()",
+      "degree": 3
+    }
+  ],
+  "surprises": [
+    {
+      "source": "HomePage()",
+      "target": "PageHeading()",
+      "source_files": [
+        "app/(app)/home/page.tsx",
+        "components/PageHeading.tsx"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories; bridges separate communities"
+    },
+    {
+      "source": "AppLayout()",
+      "target": "Shell()",
+      "source_files": [
+        "app/(app)/layout.tsx",
+        "components/Shell.tsx"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories; peripheral node `AppLayout()` unexpectedly reaches hub `Shell()`"
+    },
+    {
+      "source": "HackathonsPage()",
+      "target": "PageHeading()",
+      "source_files": [
+        "app/(app)/hackathons/page.tsx",
+        "components/PageHeading.tsx"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories; bridges separate communities"
+    },
+    {
+      "source": "ExplorePage()",
+      "target": "EventCard()",
+      "source_files": [
+        "app/(app)/explore/page.tsx",
+        "components/EventCard.tsx"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories; bridges separate communities"
+    },
+    {
+      "source": "HomePage()",
+      "target": "PostCard()",
+      "source_files": [
+        "app/(app)/home/page.tsx",
+        "components/PostCard.tsx"
+      ],
+      "confidence": "EXTRACTED",
+      "relation": "calls",
+      "why": "connects across different repos/directories"
+    }
+  ],
+  "questions": [
+    {
+      "type": "bridge_node",
+      "question": "Why does `Avatar()` connect `Community 2` to `Community 0`, `Community 3`, `Community 5`?",
+      "why": "High betweenness centrality (0.036) - this node is a cross-community bridge."
+    },
+    {
+      "type": "bridge_node",
+      "question": "Why does `PageHeading()` connect `Community 2` to `Community 0`, `Community 6`?",
+      "why": "High betweenness centrality (0.016) - this node is a cross-community bridge."
+    }
+  ]
+}

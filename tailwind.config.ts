@@ -4,10 +4,8 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: { DEFAULT: "#2563EB", dark: "#1D4ED8" },
-        violet: { DEFAULT: "#7C3AED" },
-        cyan: { DEFAULT: "#06B6D4" },
-        bg: "#F8FAFC", surface: "#FFFFFF", ink: "#101828", muted: "#64748B", line: "#E2E8F0", night: "#101828",
+        primary: { DEFAULT: "#F87171", dark: "#B91C2B" },
+        bg: "#09090B", surface: "#131315", ink: "#F4F4F5", muted: "#A1A1AA", line: "#2B2B2F", night: "#050506",
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "sans-serif"],

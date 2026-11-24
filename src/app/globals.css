@@ -3,8 +3,31 @@
 @tailwind utilities;
 
 @layer base {
-  body { @apply bg-bg text-ink font-sans antialiased; }
-  h1, h2, h3 { @apply font-display; }
-  :focus-visible { @apply outline-2 outline-offset-2 outline-primary; }
+  body {
+    @apply min-h-screen bg-bg font-sans text-ink antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+  }
+
+  :focus-visible {
+    @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-bg;
+  }
+
+  ::selection {
+    @apply bg-primary/30 text-ink;
+  }
 }
-@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

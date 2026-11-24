@@ -35,7 +35,7 @@ npm audit --omit=dev   # keep at 0 vulnerabilities
 - Planned `src/server/`: auth, permissions, posts, connections, guilds, events, registrations, notifications, location. Business logic lives here, never in components.
 
 ## Design
-Light mode default. Tokens (in `tailwind.config.ts`): primary `#2563EB`, primary dark `#1D4ED8`, violet `#7C3AED`, cyan `#06B6D4`, bg `#F8FAFC`, surface `#FFFFFF`, ink `#101828`, muted `#64748B`, line `#E2E8F0`, night `#101828`.
+Dark black/red default, inspired by the owner's HackLink visual reference. Tokens (in `tailwind.config.ts`): primary `#F87171`, primary dark `#B91C2B`, bg `#09090B`, surface `#131315`, ink `#F4F4F5`, muted `#A1A1AA`, line `#2B2B2F`, night `#050506`.
 Fonts: Inter (UI), Space Grotesk (headings), JetBrains Mono (sparingly, technical labels). Not a Facebook clone and not a generic admin template.
 Every screen needs loading, empty, success and error states. Keep focus states, labels, semantic HTML and contrast.
 
