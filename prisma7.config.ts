@@ -6,7 +6,7 @@ if (!process.env.VERCEL) {
   config();
 }
 
-const isGenerateCommand = process.argv[2] === "generate";
+const isGenerateCommand = process.argv.includes("generate");
 const datasourceUrl = process.env.DATABASE_URL_UNPOOLED
   || (isGenerateCommand ? process.env.DATABASE_URL : undefined);
 
