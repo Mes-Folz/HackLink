@@ -60,6 +60,8 @@ Set these values in `.env.local` (never commit or paste secrets into chat):
 
 Use a database-scoped, non-admin read/write role for the pooled `DATABASE_URL`; keep the owner’s direct/unpooled URL in `DATABASE_URL_UNPOOLED` only for migrations. The configured Neon runtime role is `hacklink_app`. If the Neon CLI is authenticated in this terminal, `neon env pull` can populate the owner URLs, but preserve the restricted runtime URL in `DATABASE_URL` afterward. Do not send either URL to anyone; they contain credentials.
 
+On Vercel, configure `DATABASE_URL` for runtime queries and the other app secrets listed above. `DATABASE_URL_UNPOOLED` is not needed for the build; keep it in a trusted migration environment so the direct migration credential is not added to the deployed app.
+
 Generate `AUTH_SECRET` in PowerShell:
 
 ```powershell
