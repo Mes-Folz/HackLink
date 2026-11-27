@@ -23,8 +23,8 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
             </p>
           </div>
 
-          <Link href="/home" className="relative inline-flex min-h-11 w-fit items-center gap-2 text-sm font-bold text-primary hover:text-white">
-            Explore the sample preview <span aria-hidden="true">→</span>
+          <Link href="/register" className="relative inline-flex min-h-11 w-fit items-center gap-2 text-sm font-bold text-primary hover:text-white">
+            Join the community <span aria-hidden="true">→</span>
           </Link>
         </aside>
 
@@ -40,7 +40,7 @@ export default function AuthLayout({ children }: { children: React.ReactNode }) 
             </div>
 
             <p role="note" className="mt-4 rounded-xl border border-primary/15 bg-primary/5 px-4 py-3 text-xs leading-5 text-muted">
-              <span className="font-bold text-primary">Mockup only.</span> Do not enter real passwords or personal details. Nothing is sent or saved.
+              <span className="font-bold text-primary">Built for local makers.</span> Choose your area during profile setup; exact location is never requested.
             </p>
           </div>
         </section>

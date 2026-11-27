@@ -40,11 +40,11 @@ export default function IndexPage() {
               <Link href="/register" className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-primary-dark px-5 text-sm font-bold text-white transition-colors hover:bg-red-800 focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-bg">
                 Join HackLink <ArrowRight size={16} aria-hidden="true" />
               </Link>
-              <Link href="/home" className="inline-flex min-h-12 items-center rounded-xl border border-line px-5 text-sm font-bold text-ink transition-colors hover:border-primary/40 hover:text-primary focus-visible:ring-2 focus-visible:ring-primary">
-                Explore the preview
+              <Link href="/login" className="inline-flex min-h-12 items-center rounded-xl border border-line px-5 text-sm font-bold text-ink transition-colors hover:border-primary/40 hover:text-primary focus-visible:ring-2 focus-visible:ring-primary">
+                Sign in to explore
               </Link>
             </div>
-            <p className="mt-5 text-xs leading-5 text-muted">Mockup only: accounts and form submissions are not connected or saved.</p>
+            <p className="mt-5 text-xs leading-5 text-muted">The examples beside this intro are marked sample content; signed-in community features are database-backed.</p>
           </section>
 
           <section className="relative" aria-label="Illustrative community preview">

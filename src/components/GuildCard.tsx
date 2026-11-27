@@ -1,19 +1,18 @@
 import Link from "next/link";
-import { Users } from "lucide-react";
+import { LockKeyhole, Users } from "lucide-react";
 import Avatar from "@/components/Avatar";
-import type { SampleGuild } from "@/config/sample-content";
+import type { GuildListItem } from "@/types/community";
+import { initialsForName } from "@/types/community";
 
-export default function GuildCard({ guild }: { guild: SampleGuild }) {
+export default function GuildCard({ guild }: { guild: GuildListItem }) {
   return (
-    <Link
-      href={`/guilds/${guild.slug}`}
-      className="block rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-    >
+    <Link href={`/guilds/${guild.slug}`} className="block rounded-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary">
       <article className="rounded-2xl border border-line bg-surface p-5 shadow-sm transition-colors hover:border-primary/40">
         <div className="flex items-start justify-between gap-3">
-          <Avatar initials={guild.initials} tone={guild.tone} size="lg" />
-          <span className="rounded-full border border-emerald-900 bg-emerald-950/70 px-3 py-1 text-xs font-semibold text-emerald-200">
-            Public Guild
+          <Avatar initials={initialsForName(guild.name)} tone="violet" size="lg" />
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-line px-3 py-1 text-xs font-semibold text-muted">
+            {guild.visibility === "PRIVATE" ? <LockKeyhole size={13} aria-hidden="true" /> : null}
+            {guild.visibility === "PRIVATE" ? "Private" : "Public"} Guild
           </span>
         </div>
         <p className="mt-5 text-xs font-bold uppercase tracking-[0.14em] text-primary">{guild.category}</p>
@@ -22,9 +21,9 @@ export default function GuildCard({ guild }: { guild: SampleGuild }) {
         <div className="mt-4 flex items-center justify-between gap-3 border-t border-line pt-4">
           <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-muted">
             <Users size={15} aria-hidden="true" />
-            {guild.members} sample members
+            {guild._count.memberships} members
           </span>
-          <span className="text-xs font-semibold text-primary">View Guild preview →</span>
+          <span className="text-xs font-semibold text-primary">View Guild <span aria-hidden="true">→</span></span>
         </div>
       </article>
     </Link>

@@ -1,0 +1,297 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum ConnectionStatus {
+  PENDING
+  ACCEPTED
+  REJECTED
+}
+
+enum GuildVisibility {
+  PUBLIC
+  PRIVATE
+}
+
+enum GuildRole {
+  OWNER
+  ADMIN
+  MEMBER
+}
+
+enum GuildInvitationStatus {
+  PENDING
+  ACCEPTED
+  REVOKED
+}
+
+enum EventStatus {
+  DRAFT
+  PUBLISHED
+  CANCELLED
+  COMPLETED
+}
+
+enum EventRegistrationStatus {
+  PENDING
+  ACCEPTED
+  REJECTED
+}
+
+enum NotificationType {
+  CONNECTION_REQUEST
+  CONNECTION_ACCEPTED
+  POST_COMMENT
+  POST_LIKE
+  GUILD_INVITATION
+  EVENT_APPLICATION
+  EVENT_APPLICATION_REVIEW
+  EVENT_RESULT
+}
+
+model User {
+  id                     String                  @id @default(cuid())
+  email                  String                  @unique
+  emailVerifiedAt        DateTime?
+  adultAttestedAt        DateTime?
+  passwordHash           String?
+  username               String?                 @unique
+  displayName            String?
+  bio                    String?                 @db.VarChar(500)
+  focus                  String?
+  regionId               String?
+  area                   String?
+  waitlistedAt           DateTime?
+  createdAt              DateTime                @default(now())
+  updatedAt              DateTime                @updatedAt
+  posts                  Post[]
+  comments               Comment[]
+  likes                  PostLike[]
+  sentConnections        Connection[]            @relation("ConnectionRequester")
+  receivedConnections    Connection[]            @relation("ConnectionRecipient")
+  memberships            GuildMembership[]
+  createdGuilds          Guild[]                 @relation("GuildCreator")
+  sentInvitations        GuildInvitation[]       @relation("GuildInviter")
+  eventRegistrations     EventRegistration[]
+  organizedEvents        EventOrganizer[]
+  eventResults           EventResult[]
+  notifications          Notification[]          @relation("NotificationRecipient")
+  actorNotifications     Notification[]          @relation("NotificationActor")
+  emailVerificationToken EmailVerificationToken?
+}
+
+model EmailVerificationToken {
+  id        String   @id @default(cuid())
+  userId    String   @unique
+  tokenHash String   @unique
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([expiresAt])
+}
+
+model AuthRateLimit {
+  key             String   @id @db.VarChar(64)
+  windowStartedAt DateTime
+  attempts        Int      @default(0)
+
+  @@index([windowStartedAt])
+}
+
+model WaitlistEntry {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  area      String?
+  createdAt DateTime @default(now())
+}
+
+model Connection {
+  id          String           @id @default(cuid())
+  requesterId String
+  recipientId String
+  status      ConnectionStatus @default(PENDING)
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+  requester   User             @relation("ConnectionRequester", fields: [requesterId], references: [id], onDelete: Cascade)
+  recipient   User             @relation("ConnectionRecipient", fields: [recipientId], references: [id], onDelete: Cascade)
+
+  @@unique([requesterId, recipientId])
+  @@index([recipientId, status])
+  @@index([requesterId, status])
+}
+
+model Post {
+  id        String     @id @default(cuid())
+  authorId  String
+  body      String     @db.VarChar(2000)
+  createdAt DateTime   @default(now())
+  updatedAt DateTime   @updatedAt
+  author    User       @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  comments  Comment[]
+  likes     PostLike[]
+
+  @@index([createdAt])
+  @@index([authorId, createdAt])
+}
+
+model Comment {
+  id        String   @id @default(cuid())
+  postId    String
+  authorId  String
+  body      String   @db.VarChar(1000)
+  createdAt DateTime @default(now())
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  author    User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
+
+  @@index([postId, createdAt])
+}
+
+model PostLike {
+  id        String   @id @default(cuid())
+  postId    String
+  userId    String
+  createdAt DateTime @default(now())
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([postId, userId])
+  @@index([userId])
+}
+
+model Guild {
+  id          String            @id @default(cuid())
+  slug        String            @unique
+  name        String            @db.VarChar(60)
+  category    String            @db.VarChar(80)
+  description String            @db.VarChar(500)
+  visibility  GuildVisibility   @default(PUBLIC)
+  createdById String
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+  createdBy   User              @relation("GuildCreator", fields: [createdById], references: [id], onDelete: Restrict)
+  memberships GuildMembership[]
+  invitations GuildInvitation[]
+  events      HackathonEvent[]
+
+  @@index([visibility, createdAt])
+}
+
+model GuildMembership {
+  id        String    @id @default(cuid())
+  guildId   String
+  userId    String
+  role      GuildRole @default(MEMBER)
+  createdAt DateTime  @default(now())
+  guild     Guild     @relation(fields: [guildId], references: [id], onDelete: Cascade)
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([guildId, userId])
+  @@index([userId, role])
+}
+
+model GuildInvitation {
+  id           String                @id @default(cuid())
+  guildId      String
+  inviterId    String
+  inviteeEmail String
+  status       GuildInvitationStatus @default(PENDING)
+  createdAt    DateTime              @default(now())
+  guild        Guild                 @relation(fields: [guildId], references: [id], onDelete: Cascade)
+  inviter      User                  @relation("GuildInviter", fields: [inviterId], references: [id], onDelete: Cascade)
+
+  @@unique([guildId, inviteeEmail])
+  @@index([inviteeEmail, status])
+}
+
+model HackathonEvent {
+  id                   String              @id @default(cuid())
+  slug                 String              @unique
+  title                String              @db.VarChar(100)
+  description          String              @db.VarChar(2000)
+  topic                String              @db.VarChar(80)
+  startsAt             DateTime
+  endsAt               DateTime
+  registrationDeadline DateTime
+  timezone             String              @default("Asia/Manila")
+  isOnline             Boolean             @default(false)
+  location             String?             @db.VarChar(160)
+  capacity             Int?
+  reservedSlots        Int                 @default(0)
+  status               EventStatus         @default(PUBLISHED)
+  hostGuildId          String
+  createdAt            DateTime            @default(now())
+  updatedAt            DateTime            @updatedAt
+  hostGuild            Guild               @relation(fields: [hostGuildId], references: [id], onDelete: Restrict)
+  registrations        EventRegistration[]
+  organizers           EventOrganizer[]
+  results              EventResult[]
+
+  @@index([status, startsAt])
+  @@index([hostGuildId, startsAt])
+}
+
+model EventOrganizer {
+  id        String         @id @default(cuid())
+  eventId   String
+  userId    String
+  createdAt DateTime       @default(now())
+  event     HackathonEvent @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  user      User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([eventId, userId])
+  @@index([userId])
+}
+
+model EventRegistration {
+  id           String                  @id @default(cuid())
+  eventId      String
+  userId       String
+  status       EventRegistrationStatus @default(PENDING)
+  reviewedById String?
+  createdAt    DateTime                @default(now())
+  updatedAt    DateTime                @updatedAt
+  event        HackathonEvent          @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  user         User                    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([eventId, userId])
+  @@index([eventId, status, createdAt])
+}
+
+model EventResult {
+  id          String         @id @default(cuid())
+  eventId     String
+  userId      String?
+  projectName String         @db.VarChar(100)
+  summary     String         @db.VarChar(500)
+  placement   Int?
+  publishedAt DateTime?
+  createdAt   DateTime       @default(now())
+  event       HackathonEvent @relation(fields: [eventId], references: [id], onDelete: Cascade)
+  user        User?          @relation(fields: [userId], references: [id], onDelete: SetNull)
+
+  @@unique([eventId, projectName])
+  @@index([eventId, placement])
+}
+
+model Notification {
+  id          String           @id @default(cuid())
+  recipientId String
+  actorId     String?
+  type        NotificationType
+  title       String           @db.VarChar(160)
+  message     String           @db.VarChar(300)
+  href        String?
+  targetId    String?
+  readAt      DateTime?
+  createdAt   DateTime         @default(now())
+  recipient   User             @relation("NotificationRecipient", fields: [recipientId], references: [id], onDelete: Cascade)
+  actor       User?            @relation("NotificationActor", fields: [actorId], references: [id], onDelete: SetNull)
+
+  @@index([recipientId, readAt, createdAt])
+}

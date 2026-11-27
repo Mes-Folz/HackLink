@@ -1,10 +1,28 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CalendarDays, Code2, MessageCircle, UsersRound } from "lucide-react";
-import FeedPreview from "@/components/FeedPreview";
-import { SAMPLE_POSTS } from "@/config/sample-content";
+import Feed from "@/components/Feed";
+import { getPrisma } from "@/server/db";
+import { requireUserId } from "@/server/permissions";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const viewerId = await requireUserId();
+  const posts = await getPrisma().post.findMany({
+    where: { author: { is: { adultAttestedAt: { not: null } } } },
+    orderBy: { createdAt: "desc" },
+    take: 30,
+    include: {
+      author: { select: { id: true, displayName: true, username: true, focus: true } },
+      likes: { select: { userId: true } },
+      comments: {
+        where: { author: { is: { adultAttestedAt: { not: null } } } },
+        orderBy: { createdAt: "asc" },
+        take: 20,
+        include: { author: { select: { displayName: true, username: true } } },
+      },
+    },
+  });
+
   return (
     <div className="space-y-7">
       <section className="motion-enter relative isolate grid overflow-hidden rounded-[1.75rem] border border-primary/20 bg-gradient-to-br from-primary-dark/25 via-night to-bg px-5 py-6 shadow-[0_20px_60px_rgba(185,28,43,0.12)] sm:px-7 sm:py-8 lg:min-h-[300px] lg:grid-cols-[1.05fr_.95fr] lg:items-center lg:px-8">
@@ -77,7 +95,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <FeedPreview posts={SAMPLE_POSTS} />
+      <Feed posts={posts} viewerId={viewerId} />
     </div>
   );
 }

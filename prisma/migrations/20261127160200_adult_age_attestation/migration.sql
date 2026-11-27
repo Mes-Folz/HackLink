@@ -1,0 +1,1 @@
+ALTER TABLE "User" ADD COLUMN "adultAttestedAt" TIMESTAMP(3);

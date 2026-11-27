@@ -14,6 +14,7 @@ Out of scope for now: recruitment posts, advanced portfolios, real-time chat, ra
 - Location is an **area filter** (City district / province town), not a radius slider. No browser geolocation or nearby notifications yet. Event lat/lng stays optional.
 - Defaults: timezone `Asia/Manila`, currency `PHP`. Online events allowed (flagged "Online").
 - **Pending event applications count toward capacity.** Organizers can reject to free a slot. Apply this rule identically in backend and UI.
+- **The age gate is a self-declaration, not formal verification.** Under-18 accounts are paused; do not enable them until guardian consent, private-by-default child accounts, child-friendly privacy information, and legal review are complete.
 - **Free-tier stack first** (budget is near zero). Do not add paid services.
 
 ## Stack
@@ -57,12 +58,14 @@ Roles live on `GuildMembership` and per-event organizer assignment, not as one g
 
 ## Roadmap
 - [x] 1.1 Scaffold, design tokens, app shell (build passes, audit clean)
-- [ ] 1.2 Register / login / logout
-- [ ] 1.3 Onboarding + profile (Iloilo area gate, waitlist)
-- [ ] 1.4 Permission helpers + first auth tests
-- [ ] Phase 2: feed, connections, notifications
-- [ ] Phase 3: Guilds
-- [ ] Phase 4: hackathons (registration + capacity, results)
-- [ ] Phase 5: QA, seed data (marked as sample), docs
+- [x] 1.2 Register / login / logout (Auth.js credentials, Prisma/PostgreSQL, hashed passwords)
+- [x] 1.3 Onboarding + profile (Iloilo area gate, waitlist)
+- [x] 1.4 Permission helpers + authorization tests
+- [x] Phase 2: feed, connections, notifications
+- [x] Phase 3: Guilds
+- [x] Phase 4: hackathons (registration + capacity, results)
+- [x] Phase 5: QA, sample seed data, docs
 
-The 1.2–1.3 screens and Phase 2–4 community workflows now have UI mockups only. Posts, connections, Guilds, events, applications, reviews, and results use sample/local preview states; nothing is persisted. Real authentication, database work, server-side authorization, capacity enforcement, and the 1.4 permission helpers/auth tests remain pending after mockup review.
+The roadmap workflows are implemented with PostgreSQL persistence and server-side authorization. Sample seed records are explicitly marked, use non-deliverable `.invalid` emails, and are blocked in production unless intentionally enabled outside production. Email verification now gates community access and requires Resend configuration; password reset, file uploads, messaging, recruitment posts, advanced portfolios, rankings, and recommendations remain out of scope.
+
+The roadmap is complete at the implementation level. The production email-verification/rate-limit migration has been applied and verified. The age-attestation migration added for the current age gate is pending; do not describe this updated app as database-verified until it is applied and checked against the configured `.env.local`.

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { ArrowLeft, Users } from "lucide-react";
-import GuildCreatePreviewForm from "@/components/GuildCreatePreviewForm";
+import GuildCreateForm from "@/components/GuildCreateForm";
 import PageHeading from "@/components/PageHeading";
 
 export default function CreateGuildPage() {
@@ -10,17 +10,17 @@ export default function CreateGuildPage() {
         <ArrowLeft size={16} aria-hidden="true" /> Back to Guilds
       </Link>
       <PageHeading
-        eyebrow="GUILDS · CREATION PREVIEW"
+        eyebrow="GUILDS · CREATE"
         title="Make room for good work."
         description="Shape a welcoming place for people to learn, share progress, and build together."
       />
       <div className="flex items-start gap-3 rounded-2xl border border-primary/15 bg-primary/5 p-4">
         <Users size={19} className="mt-0.5 shrink-0 text-primary" aria-hidden="true" />
         <p className="text-sm leading-6 text-muted">
-          This form is a visual preview only. Guilds, memberships, and privacy settings are not saved or enforced.
+          Private Guilds are hidden from non-members. The first creator becomes the owner and can transfer ownership later.
         </p>
       </div>
-      <GuildCreatePreviewForm />
+      <GuildCreateForm />
     </div>
   );
 }
