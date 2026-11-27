@@ -6,12 +6,15 @@ if (!process.env.VERCEL) {
   config();
 }
 
-const isGenerateCommand = process.argv.includes("generate");
+const isGenerateCommand = process.argv.includes("generate")
+  || ["prebuild", "predev", "db:seed"].includes(process.env.npm_lifecycle_event ?? "");
 const datasourceUrl = process.env.DATABASE_URL_UNPOOLED
   || (isGenerateCommand ? process.env.DATABASE_URL : undefined);
 
 if (!datasourceUrl) {
-  throw new Error("DATABASE_URL_UNPOOLED is required for Prisma migrations. Client generation may use DATABASE_URL.");
+  throw new Error(isGenerateCommand
+    ? "DATABASE_URL or DATABASE_URL_UNPOOLED is required for Prisma client generation."
+    : "DATABASE_URL_UNPOOLED is required for Prisma migrations.");
 }
 
 export default defineConfig({
